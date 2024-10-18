@@ -59,7 +59,7 @@ const SupplierScreen = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get<Item[]>("https://backeee.onrender.com/api/auth/items"); // Update with your API endpoint
+        const response = await axios.get<Item[]>("https://cloud-back-7qc4.onrender.com/api/auth/items"); // Update with your API endpoint
         setItems(response.data);
       } catch (error) {
         console.error("Failed to fetch items:", error);

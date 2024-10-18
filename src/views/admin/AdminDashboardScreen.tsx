@@ -68,7 +68,7 @@ const AdminDashboardScreen = () => {
    useEffect(() => {
      const fetchItems = async () => {
        try {
-         const response = await axios.get("https://backeee.onrender.com/api/auth/items");
+         const response = await axios.get("https://cloud-back-7qc4.onrender.com/api/auth/items");
          setItems(response.data);
        } catch (error) {
          console.error("Failed to fetch items:", error);

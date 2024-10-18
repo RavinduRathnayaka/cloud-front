@@ -27,7 +27,7 @@ const AdminItemManagement: React.FC = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get('https://backeee.onrender.com/api/auth/items'); // Adjust the endpoint URL as per your backend
+        const response = await axios.get('https://cloud-back-7qc4.onrender.com/api/auth/items'); // Adjust the endpoint URL as per your backend
         setItems(response.data);
         console.log(response.data);
       } catch (error) {
@@ -54,7 +54,7 @@ const AdminItemManagement: React.FC = () => {
   const handleDelete = async (_id: string) => { // Change id to _id
     if (window.confirm('Are you sure you want to delete this item?')) {
       try {
-        await axios.delete(`https://backeee.onrender.com/api/auth/items/${_id}`); // Adjust the endpoint URL
+        await axios.delete(`https://cloud-back-7qc4.onrender.com/api/auth/items/${_id}`); // Adjust the endpoint URL
         setItems(items.filter(item => item._id !== _id)); // Change id to _id
         alert('Item deleted successfully');
       } catch (error) {
@@ -73,7 +73,7 @@ const AdminItemManagement: React.FC = () => {
       }
       // Update the item
       try {
-        await axios.put(`https://backeee.onrender.com/api/auth/items/${currentItem._id}`, currentItem); // Change id to _id
+        await axios.put(`https://cloud-back-7qc4.onrender.com/api/auth/items/${currentItem._id}`, currentItem); // Change id to _id
         setItems(items.map(item => item._id === currentItem._id ? currentItem : item)); // Change id to _id
         alert('Item updated successfully');
       } catch (error) {
@@ -82,7 +82,7 @@ const AdminItemManagement: React.FC = () => {
     } else {
       // Add a new item
       try {
-        const response = await axios.post('https://backeee.onrender.com/api/auth/items', currentItem);
+        const response = await axios.post('https://cloud-back-7qc4.onrender.com/api/auth/items', currentItem);
         setItems([...items, response.data]);
         alert('Item added successfully!');
       } catch (error) {

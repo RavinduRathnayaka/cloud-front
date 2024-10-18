@@ -29,7 +29,7 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
 
   const addOrder = async (order: Order) => {
     return await axios
-      .post("https://backeee.onrender.com/api/auth/place-order", order, {
+      .post("https://cloud-back-7qc4.onrender.com/api/auth/place-order", order, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -49,7 +49,7 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
     const { _id, ...orderData } = updatedOrder;
     return await axios
       .put(
-        `https://backeee.onrender.com/api/auth/order/${updatedOrder._id}/status`,
+        `https://cloud-back-7qc4.onrender.com/api/auth/order/${updatedOrder._id}/status`,
         orderData,
         {
           headers: {
@@ -73,7 +73,7 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
 
   const deleteOrder = async (id: string) => {
     return await axios
-      .delete(`https://backeee.onrender.com/api/auth/order/${id}`, {
+      .delete(`https://cloud-back-7qc4.onrender.com/api/auth/order/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -90,7 +90,7 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
 
   const getOrders = () => {
     axios
-      .get("https://backeee.onrender.com/api/auth/orders", {
+      .get("https://cloud-back-7qc4.onrender.com/api/auth/orders", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

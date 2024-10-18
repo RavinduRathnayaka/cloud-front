@@ -28,7 +28,7 @@ export const NewsFeedProvider = ({ children }: { children: ReactNode }) => {
 
   const addNewsFeed = async (newsFeed: NewsFeed) => {
     return await axios
-      .post("https://backeee.onrender.com/api/auth/newsfeeds", newsFeed, {
+      .post("https://cloud-back-7qc4.onrender.com/api/auth/newsfeeds", newsFeed, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -47,7 +47,7 @@ export const NewsFeedProvider = ({ children }: { children: ReactNode }) => {
   const updateNewsFeed = async (updatedNewsFeed: NewsFeed) => {
     return await axios
       .put(
-        `https://backeee.onrender.com/api/auth/newsfeeds/${updatedNewsFeed._id}`,
+        `https://cloud-back-7qc4.onrender.com/api/auth/newsfeeds/${updatedNewsFeed._id}`,
         updatedNewsFeed,
         {
           headers: {
@@ -71,7 +71,7 @@ export const NewsFeedProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const deleteNewsFeed = async (id: string) => {
-    return await axios.delete(`https://backeee.onrender.com/api/auth/newsfeeds/${id}`, {
+    return await axios.delete(`https://cloud-back-7qc4.onrender.com/api/auth/newsfeeds/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -88,7 +88,7 @@ export const NewsFeedProvider = ({ children }: { children: ReactNode }) => {
 
   const getNewsFeeds = async () => {
     const response = await axios.get(
-      "https://backeee.onrender.com/api/auth/newsfeeds"
+      "https://cloud-back-7qc4.onrender.com/api/auth/newsfeeds"
     );
     setNewsFeeds(response.data);
   };

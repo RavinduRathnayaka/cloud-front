@@ -19,7 +19,7 @@ const News: React.FC = () => {
   useEffect(() => {
     const fetchNewsfeeds = async () => {
       try {
-        const response = await fetch('https://backeee.onrender.com/api/auth/newsfeeds');
+        const response = await fetch('https://cloud-back-7qc4.onrender.com/api/auth/newsfeeds');
         const data = await response.json();
         setNewsfeeds(data);
         setLoading(false);

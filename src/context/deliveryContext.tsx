@@ -32,7 +32,7 @@ export const DeliveryProvider = ({ children }: { children: ReactNode }) => {
 
   const addDelivery = async (delivery: Delivery) => {
     return await axios
-      .post("https://backeee.onrender.com/api/auth/add/drivers", delivery, {
+      .post("https://cloud-back-7qc4.onrender.com/api/auth/add/drivers", delivery, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -52,7 +52,7 @@ export const DeliveryProvider = ({ children }: { children: ReactNode }) => {
   const updateDelivery = async (updatedDelivery: Delivery) => {
     return await axios
       .put(
-        `https://backeee.onrender.com/api/auth/drivers/${updatedDelivery._id}`,
+        `https://cloud-back-7qc4.onrender.com/api/auth/drivers/${updatedDelivery._id}`,
         updatedDelivery,
         {
           headers: {
@@ -76,13 +76,13 @@ export const DeliveryProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const getDeliveries = async () => {
-    const response = await axios.get("https://backeee.onrender.com/api/auth/drivers");
+    const response = await axios.get("https://cloud-back-7qc4.onrender.com/api/auth/drivers");
     setDeliveries(response.data);
   };
 
   const deleteDelivery = async (id: string | undefined) => {
     return await axios
-      .delete(`https://backeee.onrender.com/api/auth/drivers/${id}`, {
+      .delete(`https://cloud-back-7qc4.onrender.com/api/auth/drivers/${id}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

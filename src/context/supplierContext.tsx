@@ -30,7 +30,7 @@ export const SupplierProvider = ({ children }: { children: ReactNode }) => {
   const addSupplier = async (supplier: Supplier) => {
     const { _id, ...supplierData } = supplier;
     return await axios
-      .post("https://backeee.onrender.com/api/auth/add/suppliers", supplierData, {
+      .post("https://cloud-back-7qc4.onrender.com/api/auth/add/suppliers", supplierData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -51,7 +51,7 @@ export const SupplierProvider = ({ children }: { children: ReactNode }) => {
   const updateSupplier = async (updatedSupplier: Supplier) => {
     return await axios
       .put(
-        `https://backeee.onrender.com/api/auth/suppliers/${updatedSupplier._id}`,
+        `https://cloud-back-7qc4.onrender.com/api/auth/suppliers/${updatedSupplier._id}`,
         updatedSupplier,
         {
           headers: {
@@ -75,7 +75,7 @@ export const SupplierProvider = ({ children }: { children: ReactNode }) => {
 
   const deleteSupplier = async (id: string) => {
     return await axios
-      .delete(`https://backeee.onrender.com/api/auth/suppliers/${id}`, {
+      .delete(`https://cloud-back-7qc4.onrender.com/api/auth/suppliers/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -92,7 +92,7 @@ export const SupplierProvider = ({ children }: { children: ReactNode }) => {
 
   const getSuppliers = async () => {
     return await axios
-      .get("https://backeee.onrender.com/api/auth/suppliers", {
+      .get("https://cloud-back-7qc4.onrender.com/api/auth/suppliers", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

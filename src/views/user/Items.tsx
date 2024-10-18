@@ -38,7 +38,7 @@ export const Items = () => {
         // Fetch items from the API using Axios
         const fetchItems = async () => {
             try {
-                const response = await axios.get<Item[]>('https://backeee.onrender.com/api/auth/items'); // Use the Item type for the response
+                const response = await axios.get<Item[]>('https://cloud-back-7qc4.onrender.com/api/auth/items'); // Use the Item type for the response
                 console.log(response.data); // Log the fetched items to check the structure
                 setItems(response.data); // Assuming the data is an array of items
             } catch (error) {

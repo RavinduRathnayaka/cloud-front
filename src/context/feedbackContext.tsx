@@ -33,7 +33,7 @@ export const FeedbackProvider = ({ children }: { children: ReactNode }) => {
 
   const addFeedback = async (feedback: Feedback) => {
     return await axios
-      .post("https://backeee.onrender.com/api/auth/feedback", feedback, {
+      .post("https://cloud-back-7qc4.onrender.com/api/auth/feedback", feedback, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -51,7 +51,7 @@ export const FeedbackProvider = ({ children }: { children: ReactNode }) => {
   const getFeedbacks = async () => {
     console.log(token);
     await axios
-      .get("https://backeee.onrender.com/api/auth/feedbacks", {
+      .get("https://cloud-back-7qc4.onrender.com/api/auth/feedbacks", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -66,7 +66,7 @@ export const FeedbackProvider = ({ children }: { children: ReactNode }) => {
 
   const updateFeedback = async (updatedFeedback: Feedback) => {
     return await axios
-      .put(`https://backeee.onrender.com/api/auth/feedback/reply/`, updatedFeedback, {
+      .put(`https://cloud-back-7qc4.onrender.com/api/auth/feedback/reply/`, updatedFeedback, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -87,7 +87,7 @@ export const FeedbackProvider = ({ children }: { children: ReactNode }) => {
 
   const deleteFeedback = async (id: string) => {
     return await axios
-      .delete(`https://backeee.onrender.com/api/auth/feedback/reply/${id}`, {
+      .delete(`https://cloud-back-7qc4.onrender.com/api/auth/feedback/reply/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

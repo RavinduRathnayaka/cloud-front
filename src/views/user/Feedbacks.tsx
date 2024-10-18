@@ -45,7 +45,7 @@ const FeedbackForm = () => {
       };
 
       const response = await axios.post(
-        "https://backeee.onrender.com/api/auth/feedback",
+        "https://cloud-back-7qc4.onrender.com/api/auth/feedback",
         feedback,
         config
       );

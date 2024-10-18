@@ -11,7 +11,7 @@ export const ItemDetails = () => {
     useEffect(() => {
         const fetchItem = async () => {
             try {
-                const response = await axios.get(`https://backeee.onrender.com/api/auth/items/${id}`); // Adjust the API endpoint accordingly
+                const response = await axios.get(`https://cloud-back-7qc4.onrender.com/api/auth/items/${id}`); // Adjust the API endpoint accordingly
                 setItem(response.data);
                 console.log(response); // Log response data
             } catch (error) {
