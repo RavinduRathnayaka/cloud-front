@@ -16,8 +16,11 @@ import {
   Typography,
   Select,
   MenuItem,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import { useSupplier } from "../../../hooks/useSupplier";
+import { SelectChangeEvent } from "@mui/material";
 
 // Define an interface for the supplier
 interface Supplier {
@@ -102,15 +105,15 @@ const SupplierScreen = () => {
 
   // Update handleChange function to support Select component
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | { name?: string; value: unknown }>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent
   ) => {
     const { name, value } = e.target;
-    setCurrentSupplier({ ...currentSupplier, [name]: value as string });
+    setCurrentSupplier({ ...currentSupplier, [name as string]: value });
   };
 
-  const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleSelectChange = (event: SelectChangeEvent) => {
     const { name, value } = event.target;
-    setCurrentSupplier({ ...currentSupplier, [name]: value as string });
+    setCurrentSupplier({ ...currentSupplier, [name as string]: value });
   };
 
   const handleSave = async () => {
@@ -297,20 +300,21 @@ const SupplierScreen = () => {
               fullWidth
               margin="normal"
             />
-            <Select
-              label="Item ID"
-              name="itemId"
-              value={currentSupplier.itemId}
-              onChange={handleSelectChange} // Use the new handleSelectChange
-              fullWidth
-              margin="normal"
-            >
-              {items.map((item) => (
-                <MenuItem key={item._id} value={item._id}>
-                  {item.name}
-                </MenuItem>
-              ))}
-            </Select>
+            <FormControl fullWidth margin="normal">
+              <InputLabel>Item ID</InputLabel>
+              <Select
+                name="itemId"
+                value={currentSupplier.itemId}
+                onChange={handleSelectChange} 
+                fullWidth
+              >
+                {items.map((item) => (
+                  <MenuItem key={item._id} value={item._id}>
+                    {item.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             <TextField
               label="Email"
               name="email"
@@ -328,20 +332,14 @@ const SupplierScreen = () => {
               margin="normal"
             />
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginTop: 2,
-            }}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSave}
+            sx={{ marginTop: 3 }}
           >
-            <Button variant="contained" color="primary" onClick={handleSave}>
-              Save
-            </Button>
-            <Button variant="contained" color="inherit" onClick={handleClose}>
-              Cancel
-            </Button>
-          </Box>
+            {isUpdate ? "Update Supplier" : "Save Supplier"}
+          </Button>
         </Box>
       </Modal>
     </>

@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'; // Import useState and useEffect
 import axios from 'axios';
 
 export const ItemDetails = () => {

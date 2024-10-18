@@ -1,6 +1,5 @@
-import React from "react";
-import { Link } from 'react-router-dom';
-
+//import React from "react";
+// Removed unused import 'Link'
 function Footer() {
   return (
     <footer className="block bg-grey-light border-t">
@@ -45,7 +44,6 @@ function Footer() {
         </div>
       </div>
     </footer>
-
   );
 }
 

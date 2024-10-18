@@ -27,7 +27,7 @@ import Footer from "./views/user/footer";
 import Checkout from "./views/user/Checkout";
 import UserProfileUpdate from "./views/user/userManagement/UserProfileUpdate";
 import News from "./views/user/News";
-import Profile from "./views/user/userManagement/Profile";
+//import Profile from "./views/user/userManagement/Profile";
 import FeedbackForm from "./views/user/Feedbacks";
 import AdminItemManagement from "./views/admin/AdminItemManagement";
 

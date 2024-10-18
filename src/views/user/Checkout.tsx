@@ -4,12 +4,12 @@ import axios from "axios";
 
 // Define TypeScript interfaces for the state and props
 interface CartItem {
-    _id: string; // Use string as `_id` is a string
+    _id: string;
     name: string;
     image: string;
-    price: string; // Keep it as string since it's fetched as a string
-    ratings?: number; // Optional field if ratings aren't always present
-    quantity: number; // Added quantity field
+    price: string;
+    ratings?: number;
+    quantity: number;
 }
 
 const Order: React.FC = () => {
@@ -23,45 +23,40 @@ const Order: React.FC = () => {
     const [name, setName] = useState<string>("");
     const [address, setAddress] = useState<string>("");
     const [mobile, setMobile] = useState<string>("");
-    const [success, setSuccess] = useState<boolean>(false);
+    const [success, setSuccess] = useState<boolean>(false); // success state will be used
     const navigate = useNavigate();
 
     const handlePlaceOrder = async (event: MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
 
-        // Retrieve user from local storage
         const token = localStorage.getItem('token') || '';
         const userId = localStorage.getItem('userId') || '';
 
-        // Check if the user has an address
         if (!address) {
             alert("Please provide a delivery address.");
             return;
         }
 
-        // Check if any of the required fields is empty
         if (!name || !address || !mobile) {
             alert("Please fill in all required fields.");
             return;
         }
 
-        // Prepare order data
         const orderData = {
             name,
             address,
             mobile,
-            totalAmount: Number(item.price), // Convert price to a number
-            userId, // Store the user ID with the order
-            items: item.name, // Use item name
+            totalAmount: Number(item.price),
+            userId,
+            items: item.name,
         };
 
         console.log(orderData);
 
         try {
-            // Place the order
             await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/place-order`, orderData, {
                 headers: {
-                    'Authorization': `Bearer ${token}`, // Add the token to the request headers
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
             });
@@ -69,9 +64,8 @@ const Order: React.FC = () => {
             console.log("Order placed successfully");
             alert('Order added successfully!');
 
-            // Update inventory
             const inventoryUpdateData = {
-                quantity: -1, // Reduce the quantity by 1
+                quantity: -1,
             };
 
             await axios.patch(`${import.meta.env.VITE_API_URL}/api/auth/update-inventory/${item._id}`, inventoryUpdateData, {
@@ -83,15 +77,14 @@ const Order: React.FC = () => {
 
             console.log("Inventory updated successfully");
 
-            // Optionally, clear the cart or perform any other action
-            localStorage.removeItem("cart"); // If you want to clear the cart
+            localStorage.removeItem("cart");
 
-            setSuccess(true);
+            setSuccess(true); // Set success to true when order is placed
             setTimeout(() => {
                 setSuccess(false);
+                navigate("/"); // Redirect after the success message is shown
             }, 3000);
 
-            navigate("/"); // Redirect to the desired route after placing the order
         } catch (error) {
             console.error("Error placing order:", error);
             alert("There was an error placing your order. Please try again.");
@@ -166,6 +159,9 @@ const Order: React.FC = () => {
                             >
                                 Place Order
                             </button>
+                            {success && (
+                                <p className="text-green-600 mt-4">Order placed successfully!</p>
+                            )}
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,10 @@
-// SuccessAlert.js
-import React from "react";
+interface SuccessAlertProps {
+  onClose: () => void; // Define the type of onClose as a function
+}
 
-const SuccessAlert = ({ onClose }) => (
-<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
-    <div className="rounded-lg bg-gray-50 p-8  animate-in zoom-in-50 fade-in">
+const SuccessAlert = ({ onClose }: SuccessAlertProps) => (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+    <div className="rounded-lg bg-gray-50 p-8 animate-in zoom-in-50 fade-in">
       <div className="flex justify-center">
         <div className="rounded-full bg-green-200 p-6">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-500 p-4">
